@@ -66,49 +66,167 @@ permalink: /snake/
         background-color: #FFF;
         color: #000;
     }
+
+    .christmas-header {
+    font-size: 3rem; /* Make the text bigger */
+    color: red; /* Change text color */
+    text-shadow: 3px 3px 5px green; /* Add 3D drop shadow */
+    text-align: center; /* Center the text (optional) */
+}
+
+    /* General text style for the festive theme */
+.container p {
+    font-size: 1.5rem; /* Slightly bigger text */
+    font-family: "Comic Sans MS", cursive, sans-serif; /* Festive font */
+    color: red; /* Bright festive red */
+    text-shadow: 2px 2px 5px green; /* Add drop shadow for a 3D effect */
+}
+
+.container a {
+    color: green !important; /* Force green as the default color */
+    text-shadow: 2px 2px 5px green; /* Optional: Add a shadow for consistency */
+    text-decoration: none; /* Ensure no underline by default */
+}
+
+.container a:hover {
+    color: red !important; /* Change to red on hover */
+    text-shadow: 1.5px 1.5px 3.75px white; /* Add a white shadow for hover effect */
+}
+
+.container span {
+    background-color: white; /* Keep highlight background */
+    color: black; /* Contrast text inside highlight */
+    font-weight: bold; /* Make the text in the span stand out */
+    padding: 2px 4px; /* Add padding for better spacing */
+}
+
+.snowman {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 80px;
+    height: 160px;
+}
+
+.body {
+    position: absolute;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+
+.head {
+    width: 30px;
+    height: 30px;
+    top: 0;
+    left: 25px;
+}
+
+.torso {
+    width: 50px;
+    height: 50px;
+    top: 25px; /* Overlaps slightly with the head */
+    left: 15px;
+}
+
+.base {
+    width: 70px;
+    height: 70px;
+    top: 70px; /* Overlaps slightly with the torso */
+    left: 5px;
+}
+
+.eye {
+    position: absolute;
+    background-color: black;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+}
+
+.eye.left {
+    top: 8px;
+    left: 35px;
+}
+
+.eye.right {
+    top: 8px;
+    left: 45px;
+}
+
+.nose {
+    position: absolute;
+    background-color: orange;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    top: 15px;
+    left: 40px;
+    transform: rotate(45deg);
+}
+
+
 </style>
 
-<h2>Snake</h2>
+
+<h2 class="christmas-header">🐍Snake🎄</h2>
+
+<div class="lights">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+</div>
+<div class="container">
+    <!-- Remaining game content here -->
+</div>
+
+
 <div class="container">
     <header class="pb-3 mb-4 border-bottom border-primary text-dark">
-        <p class="fs-4">Score: <span id="score_value">0</span></p>
+        <p class="fs-4" style="font-size: 1rem; color: red;">🎄 Score: <span id="score_value">0</span> 🎅</p>
     </header>
-    <div class="container bg-secondary" style="text-align:center;">
-        <!-- Main Menu -->
-        <div id="menu" class="py-4 text-light">
-            <p>Welcome to Snake, press <span style="background-color: #FFFFFF; color: #000000">space</span> to begin</p>
-            <a id="new_game" class="link-alert">new game</a>
-            <a id="setting_menu" class="link-alert">settings</a>
-        </div>
-        <!-- Game Over -->
-        <div id="gameover" class="py-4 text-light">
-            <p>Game Over, press <span style="background-color: #FFFFFF; color: #000000">space</span> to try again</p>
-            <a id="new_game1" class="link-alert">new game</a>
-            <a id="setting_menu1" class="link-alert">settings</a>
-        </div>
-        <!-- Play Screen -->
-        <canvas id="snake" class="wrap" width="320" height="320" tabindex="1"></canvas>
-        <!-- Settings Screen -->
-        <div id="setting" class="py-4 text-light">
-            <p>Settings Screen, press <span style="background-color: #FFFFFF; color: #000000">space</span> to go back to playing</p>
-            <a id="new_game2" class="link-alert">new game</a>
-            <br>
-            <p>Speed:
-                <input id="speed1" type="radio" name="speed" value="120" checked/>
-                <label for="speed1">Slow</label>
-                <input id="speed2" type="radio" name="speed" value="75"/>
-                <label for="speed2">Normal</label>
-                <input id="speed3" type="radio" name="speed" value="35"/>
-                <label for="speed3">Fast</label>
-            </p>
-            <p>Wall:
-                <input id="wallon" type="radio" name="wall" value="1" checked/>
-                <label for="wallon">On</label>
-                <input id="walloff" type="radio" name="wall" value="0"/>
-                <label for="walloff">Off</label>
-            </p>
-        </div>
+<div class="container bg-secondary" style="text-align:center;">
+    <!-- Main Menu -->
+    <div id="menu" class="py-4 text-light">
+        <p>Welcome to Snake, press <span style="background-color: #FFFFFF; color: #000000">space</span> to begin</p>
+        <a id="new_game" class="link-alert">new game</a>
+        <a id="setting_menu" class="link-alert">settings</a>
     </div>
+    <!-- Game Over -->
+    <div id="gameover" class="py-4 text-light">
+        <p>Game Over, press <span style="background-color: #FFFFFF; color: #000000">space</span> to try again</p>
+        <a id="new_game1" class="link-alert">new game</a>
+        <a id="setting_menu1" class="link-alert">settings</a>
+    </div>
+    <!-- Play Screen -->
+    <canvas id="snake" class="wrap" width="320" height="320" tabindex="1"></canvas>
+    <!-- Settings Screen -->
+    <div id="setting" class="py-4 text-light">
+        <p>Settings Screen, press <span style="background-color: #FFFFFF; color: #000000">space</span> to go back to playing</p>
+        <a id="new_game2" class="link-alert">new game</a>
+        <br>
+        <p>Speed:
+            <input id="speed1" type="radio" name="speed" value="120" checked/>
+            <label for="speed1">Slow</label>
+            <input id="speed2" type="radio" name="speed" value="75"/>
+            <label for="speed2">Normal</label>
+            <input id="speed3" type="radio" name="speed" value="35"/>
+            <label for="speed3">Fast</label>
+        </p>
+        <p>Wall:
+            <input id="wallon" type="radio" name="wall" value="1" checked/>
+            <label for="wallon">On</label>
+            <input id="walloff" type="radio" name="wall" value="0"/>
+            <label for="walloff">Off</label>
+        </p>
+    </div>
+</div>
+
 </div>
 
 <script>
@@ -268,7 +386,7 @@ permalink: /snake/
             }
             // Repaint canvas
             ctx.beginPath();
-            ctx.fillStyle = "royalblue";
+            ctx.fillStyle = "#289049";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             // Paint snake
             for(let i = 0; i < snake.length; i++){
@@ -328,7 +446,7 @@ permalink: /snake/
         /* Dot for Food or Snake part */
         /////////////////////////////////////////////////////////////
         let activeDot = function(x, y){
-            ctx.fillStyle = "#FFFFFF";
+            ctx.fillStyle = "red";
             ctx.fillRect(x * BLOCK, y * BLOCK, BLOCK, BLOCK);
         }
         /* Random food placement */
@@ -368,3 +486,95 @@ permalink: /snake/
         }
     })();
 </script>
+
+
+
+<style>
+    @keyframes fall {
+        to {
+            transform: translateY(100vh);
+        }
+    }
+
+    .snowflake {
+        position: absolute;
+        top: -10px;
+        width: 10px;
+        height: 10px;
+        background-color: white;
+        border-radius: 50%;
+        opacity: 0.8;
+        animation: fall 5s linear infinite;
+    }
+</style>
+
+
+<script>
+    (function createSnowflakes() {
+        const createSnowflake = () => {
+            const snowflake = document.createElement("div");
+            snowflake.classList.add("snowflake");
+            snowflake.style.left = Math.random() * window.innerWidth + "px";
+            snowflake.style.animationDuration = Math.random() * 3 + 2 + "s";
+            snowflake.style.opacity = Math.random();
+            document.body.appendChild(snowflake);
+
+            setTimeout(() => snowflake.remove(), 5000);
+        };
+
+        setInterval(createSnowflake, 100);
+    })();
+</script>
+
+<style>
+    @keyframes blink {
+        0%, 100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.5;
+        }
+    }
+
+    .lights {
+        display: flex;
+        justify-content: space-between; /* Distribute the lights evenly */
+        gap: 0; /* Remove gaps since we are using space-between */
+        position: absolute;
+        top: 0;
+        left: 0; /* Start from the very left */
+        width: 100%; /* Ensure the lights span the full width of the screen */
+        z-index: 10;
+        padding: 0 5px; /* Add a bit of padding if desired */
+        box-sizing: border-box; /* Include padding in the width */
+    }
+
+    .lights span {
+        width: 10px;
+        height: 20px;
+        background-color: red;
+        border-radius: 50%;
+        animation: blink 1s infinite;
+    }
+
+    .lights span:nth-child(2n) {
+        background-color: green;
+    }
+
+    .lights span:nth-child(3n) {
+        background-color: yellow;
+    }
+
+    .lights span:nth-child(4n) {
+        background-color: blue;
+    }
+</style>
+
+<div class="snowman">
+    <div class="body head"></div>
+    <div class="body torso"></div>
+    <div class="body base"></div>
+    <div class="eye left"></div>
+    <div class="eye right"></div>
+    <div class="nose"></div>
+</div>
